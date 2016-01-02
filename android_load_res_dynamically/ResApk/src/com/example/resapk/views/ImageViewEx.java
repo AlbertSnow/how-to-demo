@@ -20,6 +20,6 @@ public class ImageViewEx extends ImageView {
 	
 	@Override
 	protected void onAttachedToWindow() {
-		Toast.makeText(getContext(), "ImageViewEx here.", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(getContext(), "ImageViewEx here.", Toast.LENGTH_SHORT).show();
 	}
 }
