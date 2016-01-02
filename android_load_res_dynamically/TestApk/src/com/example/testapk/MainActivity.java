@@ -1,17 +1,12 @@
 package com.example.testapk;
 
 import java.io.File;
-import java.lang.reflect.Method;
-
 import com.tabolt.reflect.ReflectResource;
-
 import dalvik.system.DexClassLoader;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,27 +23,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	private ReflectResource reflectResource;
 	
 	
-	AssetManager mAssetManager = null;
-	Resources mResources = null;
-
 	//String libPath = Environment.getExternalStorageDirectory() + "/ResApk.apk";
 	String libPath = Environment.getExternalStorageDirectory().toString()+ File.separator +"ResApk.apk";
-
-	protected void loadResources() {
-		try {
-			AssetManager assetManager = AssetManager.class.newInstance();
-			Method addAssetPath = assetManager.getClass().getMethod(
-					"addAssetPath", String.class);
-			addAssetPath.invoke(assetManager,
-					libPath);
-			mAssetManager = assetManager;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		Resources superRes = super.getResources();
-		mResources = new Resources(mAssetManager, superRes.getDisplayMetrics(),
-				superRes.getConfiguration());
-	}
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,8 +32,6 @@ public class MainActivity extends Activity implements OnClickListener{
         setContentView(R.layout.activity_main);
         
         initView();
-        
-        loadResources();
         
         reflectResource = new ReflectResource(mResources, "com.example.resapk");
         
