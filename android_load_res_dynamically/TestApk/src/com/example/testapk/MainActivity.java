@@ -84,25 +84,9 @@ public class MainActivity extends Activity implements OnClickListener{
 	
 	private void showDialog(){
 		View view = reflectResource.getResApkLayoutView(targetContext, "activity_main");
-//		final Button resbtn2 = (Button) reflectResource.getResApkWidgetView(view, "resbtn");
-//		final Button resbtn1 = (Button) reflectResource.getResApkWidgetView(view, "restext");
 		Dialog dialog = new Dialog(MainActivity.this);
 		dialog.setTitle("资源Apk界面");
 		dialog.setContentView(view);
 		dialog.show();
-//		resbtn1.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				Toast.makeText(MainActivity.this, "I come from resApk,click btn1!", 0).show();
-//			}
-//		});
-//		resbtn2.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				Toast.makeText(MainActivity.this, "I come from resApk,click btn2!", 0).show();
-//			}
-//		});
 	}
 }
